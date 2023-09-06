@@ -5,7 +5,7 @@ import requests
 from PIL import Image
 
 # Secret API key for ClipDrop
-API_KEY = 'place_api_key_here'
+API_KEY = '419d3a6abe61144dc6c4fddbe0d0d54d91a2caba626855de615b85867d27eb0da1b0aecb6e93d9d2142e14a58ce3ce11'
 
 # define a global variable to store the filename
 global filename
@@ -55,28 +55,6 @@ def process_image_depth():
     else:
         r.raise_for_status()
 
-def process_image_normal():
-    # ClipDrop API request surface normal estimation
-    n = requests.post('https://clipdrop-api.co/portrait-surface-normals/v1',
-                      files=
-                      {
-                          'image_file': ('portrait.jpg', image_file_object, 'image/jpeg'),
-                      },
-                      headers=
-                      {
-                          'x-api-key': API_KEY
-                      })
-    if (n.ok):
-        # n.content contains the bytes of the returned image
-        image_n = Image.open(io.BytesIO(n.content))
-
-        filename_normal = f"{filename}_Normal.jpg"
-        image_n.save(filename_normal)
-        print(f'Saved Normal Map')
-    else:
-        n.raise_for_status()
-
-
 def main():
     while True:
         get_image_filename()
@@ -91,7 +69,6 @@ def main():
 
     print(f'Starting ClipDrop API Requests for', filename_extension)
     process_image_depth()
-    process_image_normal()
 
 
 # Press the green button in the gutter to run the script.
