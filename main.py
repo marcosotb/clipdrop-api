@@ -5,7 +5,7 @@ import requests
 from PIL import Image
 
 # Secret API key for ClipDrop
-API_KEY = '856a362e90a6d5c3544cd841cca796057839821e4eeeba45ab172aacb5a23c2d9abac0b804dd832956449c7d59306761'
+API_KEY = 'c00d68a1a49f96e6a8862b563665617e410cf99bbe541125a569ffd3cbd02a00ca1d88d5bbe9073d27c94bd290761c2a'
 
 # define a global variable to store the filename
 global filename
